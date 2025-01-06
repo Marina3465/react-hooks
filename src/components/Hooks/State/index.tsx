@@ -4,7 +4,7 @@ import Head1 from "../../Head1";
 
 interface StateProps {}
 
-const State: FC<StateProps> = () => {
+export const State: FC<StateProps> = () => {
   const [countS, setCountS] = useState<number>(0);
 
   let count: number = 0;
@@ -43,5 +43,3 @@ const State: FC<StateProps> = () => {
     </>
   );
 };
-
-export default State;

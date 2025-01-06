@@ -63,11 +63,17 @@ const Header: FunctionComponent<HeaderProps> = () => {
           </StyledLi>
           <StyledLi>
             <ActiveLink
-              to={`/useLocations?name=Marina&age=22#trainee`}
-              state={"This is state from Header"}
+              to={`/useLocation?name=Marina&age=22#trainee`}
+              state={{ textHeader: "This is text from Header" }}
             >
               useLocation
             </ActiveLink>
+          </StyledLi>
+          <StyledLi>
+            <ActiveLink to="/useNavigate">useNavigate</ActiveLink>
+          </StyledLi>
+          <StyledLi>
+            <ActiveLink to="/useContext">useContext</ActiveLink>
           </StyledLi>
         </StyledUl>
       </nav>

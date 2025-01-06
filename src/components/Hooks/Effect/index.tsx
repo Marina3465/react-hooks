@@ -4,7 +4,7 @@ import Button from "../../Button";
 
 interface EffectProps {}
 
-const Effect: FunctionComponent<EffectProps> = () => {
+export const Effect: FunctionComponent<EffectProps> = () => {
   const [empty, setEmpty] = useState<string>("The component is rendering...");
   const [color, setColor] = useState<string>("red");
   const [congratulations, setCongratulations] = useState<boolean>(false);
@@ -65,5 +65,3 @@ const Effect: FunctionComponent<EffectProps> = () => {
     </>
   );
 };
-
-export default Effect;

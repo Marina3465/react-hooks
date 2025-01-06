@@ -1,10 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Effect from "./components/Hooks/Effect";
-import State from "./components/Hooks/State";
 import Header from "./components/Header";
-import Params from "./components/Hooks/Params";
-import Locations from "./components/Hooks/Locations";
+import {
+  State,
+  Effect,
+  Params,
+  Location,
+  Navigate,
+  Context,
+} from "./components/Hooks";
 
 function App() {
   return (
@@ -14,7 +18,9 @@ function App() {
         <Route path="/" element={<State />} />
         <Route path="useEffect" element={<Effect />} />
         <Route path="useParams/id/:id/text/:text" element={<Params />} />
-        <Route path="useLocations" element={<Locations />} />
+        <Route path="useLocation" element={<Location />} />
+        <Route path="useNavigate" element={<Navigate />} />
+        <Route path="useContext" element={<Context />} />
       </Routes>
     </BrowserRouter>
   );

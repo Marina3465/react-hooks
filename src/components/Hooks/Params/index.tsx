@@ -4,7 +4,7 @@ import Head1 from "../../Head1";
 
 interface ParamsProps {}
 
-const Params: FunctionComponent<ParamsProps> = () => {
+export const Params: FunctionComponent<ParamsProps> = () => {
   const { id, text } = useParams<{ id: string; text: string }>();
 
   return (
@@ -14,5 +14,3 @@ const Params: FunctionComponent<ParamsProps> = () => {
     </>
   );
 };
-
-export default Params;

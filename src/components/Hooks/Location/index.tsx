@@ -2,9 +2,9 @@ import { FunctionComponent } from "react";
 import { useLocation } from "react-router-dom";
 import Paragraph from "../../Paragraph";
 
-interface LocationsProps {}
+interface LocationProps {}
 
-const Locations: FunctionComponent<LocationsProps> = () => {
+export const Location: FunctionComponent<LocationProps> = () => {
   const data = useLocation();
   return (
     <>
@@ -22,10 +22,8 @@ const Locations: FunctionComponent<LocationsProps> = () => {
       </Paragraph>
       <Paragraph>
         <b>State: </b>
-        {data.state}
+        {data.state.textHeader || data.state.textNavigate}
       </Paragraph>
     </>
   );
 };
-
-export default Locations;
