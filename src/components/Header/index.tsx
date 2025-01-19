@@ -78,6 +78,12 @@ const Header: FunctionComponent<HeaderProps> = () => {
           <StyledLi>
             <ActiveLink to="/useContext">useContext</ActiveLink>
           </StyledLi>
+          <StyledLi>
+            <ActiveLink to="/useCallback">useContext</ActiveLink>
+          </StyledLi>
+          {/* <StyledLi>
+            <ActiveLink to="/useMemo">useMemo</ActiveLink>
+          </StyledLi> */}
         </StyledUl>
       </nav>
     </StyledHeader>
