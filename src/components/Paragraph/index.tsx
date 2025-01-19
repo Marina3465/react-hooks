@@ -1,5 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
+import { useTheme } from "../Hooks/Context/utils";
 
 interface ParagraphProps {
   children: ReactNode;
@@ -11,7 +12,10 @@ const StyledP = styled.p`
 `;
 
 const Paragraph: FunctionComponent<ParagraphProps> = ({ children }) => {
-  return <StyledP>{children}</StyledP>;
+  const { theme } = useTheme();
+  const themeColor = theme === "light" ? "#333" : "#fff";
+
+  return <StyledP style={{ color: themeColor }}>{children}</StyledP>;
 };
 
 export default Paragraph;

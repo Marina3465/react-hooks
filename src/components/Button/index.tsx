@@ -1,5 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
+import { useTheme } from "../Hooks/Context/utils";
 
 const StyledButton = styled.button`
   background-color: #4caf50;
@@ -10,7 +11,9 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
 
   &:hover {
     background-color: #45a049;
@@ -27,6 +30,7 @@ const StyledButton = styled.button`
     box-shadow: 0 0 5px 2px rgba(72, 163, 69, 0.6);
   }
 `;
+
 const StyledLabel = styled.label`
   display: inline-block;
   font-size: 2rem;
@@ -44,9 +48,14 @@ const Button: FunctionComponent<ButtonProps> = ({
   children,
   onClick,
 }) => {
+  const { theme } = useTheme();
+  const themeColor = theme === "light" ? "#333" : "#fff";
+
   return (
     <>
-      <StyledLabel htmlFor="btn">{label}</StyledLabel>
+      <StyledLabel htmlFor="btn" style={{ color: themeColor }}>
+        {label}
+      </StyledLabel>
       <br />
       <StyledButton id="btn" onClick={onClick}>
         {children}

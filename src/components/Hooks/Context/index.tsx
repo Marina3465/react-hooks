@@ -1,22 +1,17 @@
-import { createContext, FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import Button from "../../Button";
+import { useTheme } from "./utils";
 
 interface ContextProps {}
 
-export const ThemeColor = createContext({
-  theme: "light",
-  toggleTheme: () => {},
-});
-
 export const Context: FunctionComponent<ContextProps> = () => {
-  const [theme, setTheme] = useState("light");
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+  const context = useTheme();
 
   return (
-    <Button label={`Current theme is ${theme}`} onClick={toggleTheme}>
+    <Button
+      label={`Current theme is ${context.theme}`}
+      onClick={context.toggleTheme}
+    >
       Change theme
     </Button>
   );

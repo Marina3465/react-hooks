@@ -9,8 +9,25 @@ import {
   Navigate,
   Context,
 } from "./components/Hooks";
+import { useTheme } from "./components/Hooks/Context/utils";
+import { useEffect } from "react";
 
 function App() {
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    if (theme === "light") {
+      document.documentElement.style.setProperty(
+        "--background-color",
+        "#ffffff"
+      );
+    } else {
+      document.documentElement.style.setProperty(
+        "--background-color",
+        "#333333"
+      );
+    }
+  }, [theme]);
   return (
     <BrowserRouter>
       <Header />

@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { useTheme } from "../Hooks/Context/utils";
 
 const StyledHeader = styled.header`
   position: absolute;
@@ -33,7 +34,7 @@ const ActiveLink = styled(NavLink)`
   color: #fff;
   text-decoration: none;
   font-size: 18px;
-  heigh: 100vh;
+  height: 100vh;
 
   &.active {
     color: rgb(51, 255, 0);
@@ -45,9 +46,11 @@ interface HeaderProps {}
 const Header: FunctionComponent<HeaderProps> = () => {
   const id: number = 123;
   const text: string = "Hello! This is useParams)";
+  const { theme } = useTheme();
+  const themeColor = theme === "light" ? "#333" : "#000";
 
   return (
-    <StyledHeader>
+    <StyledHeader style={{ backgroundColor: themeColor }}>
       <nav>
         <StyledUl>
           <StyledLi>
