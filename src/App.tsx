@@ -12,6 +12,7 @@ import {
 import { useTheme } from "./components/Hooks/Context/utils";
 import { useEffect } from "react";
 import Callback from "./components/Hooks/Callback";
+import Reducer from "./components/Hooks/Reducer";
 // import Memo from "./components/Hooks/Memo";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Route path="useContext" element={<Context />} />
         <Route path="useCallback" element={<Callback />} />
         {/* <Route path="useMemo" element={<Memo />} /> */}
+        <Route path="useReducer" element={<Reducer />} />
       </Routes>
     </BrowserRouter>
   );
