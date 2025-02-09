@@ -1,43 +1,50 @@
 import { FunctionComponent, useMemo, useState } from "react";
+import Button from "../../Button";
+import { Input } from "../../Input";
+import Head1 from "../../Head1";
 
 interface MemoProps {}
-type People = {
-  id: number;
-  name: string;
-  age: number;
-};
-const people: People[] = [
-  { id: 1, name: "Alice", age: 25 },
-  { id: 2, name: "Bob", age: 30 },
-  { id: 3, name: "Charlie", age: 35 },
-  { id: 4, name: "David", age: 40 },
-  { id: 5, name: "Eva", age: 45 },
-];
-const Memo: FunctionComponent<MemoProps> = () => {
-  const [ageFilter, setAgeFilter] = useState(30);
 
-  const filteredPeople = useMemo(() => {
-    console.log("Filtering people...");
-    return people.filter((person) => person.age >= ageFilter);
-  }, [ageFilter]);
+const computeExpensiveValue = (a: number, b: number) => {
+  let result = 0;
+  for (let i = 0; i < 1000000000; i++) {
+    result += a + b;
+  }
+  return result;
+};
+
+export const Memo: FunctionComponent<MemoProps> = () => {
+  const [count, setCount] = useState(0);
+  const [a, setA] = useState(5);
+  const [b, setB] = useState(10);
+
+  const expensiveValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
   return (
     <div>
-      <h1>People filtered by age = {ageFilter}</h1>
-      <ul>
-        {filteredPeople.map((person) => (
-          <li key={person.id}>
-            {person.name} ({person.age})
-          </li>
-        ))}
-      </ul>
-      <input
-        type="number"
-        value={ageFilter}
-        onChange={(e) => setAgeFilter(Number(e.target.value))}
-      />
+      <div>
+        <Input
+          type="number"
+          label="A:"
+          value={a}
+          onChange={(e) => setA(Number(e.target.value))}
+        />
+      </div>
+      <div>
+        <Input
+          type="number"
+          label="B:"
+          value={b}
+          onChange={(e) => setB(Number(e.target.value))}
+        />
+      </div>
+      <Head1>{`Expensive value for a=${a} and b=${b}: ${expensiveValue}`}</Head1>
+      <Button
+        label={String(count)}
+        onClick={() => setCount((prev) => prev + 1)}
+      >
+        Increment
+      </Button>
     </div>
   );
 };
-
-export default Memo;

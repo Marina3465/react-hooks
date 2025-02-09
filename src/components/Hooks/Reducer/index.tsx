@@ -26,7 +26,7 @@ const counter = (state: { count: number }, action: Action) => {
   }
 };
 
-const Reducer: FunctionComponent<ReducerProps> = () => {
+export const Reducer: FunctionComponent<ReducerProps> = () => {
   const [state, dispatch] = useReducer(counter, initialState);
   return (
     <>
@@ -41,5 +41,3 @@ const Reducer: FunctionComponent<ReducerProps> = () => {
     </>
   );
 };
-
-export default Reducer;

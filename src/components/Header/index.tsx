@@ -81,9 +81,9 @@ const Header: FunctionComponent<HeaderProps> = () => {
           <StyledLi>
             <ActiveLink to="/useCallback">useCallback</ActiveLink>
           </StyledLi>
-          {/* <StyledLi>
+          <StyledLi>
             <ActiveLink to="/useMemo">useMemo</ActiveLink>
-          </StyledLi> */}
+          </StyledLi>
           <StyledLi>
             <ActiveLink to="useReducer">useReducer</ActiveLink>
           </StyledLi>

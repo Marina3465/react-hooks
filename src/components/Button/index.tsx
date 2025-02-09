@@ -4,6 +4,7 @@ import { useTheme } from "../Hooks/Context/utils";
 
 const StyledButton = styled.button`
   background-color: #4caf50;
+  width: fit-content;
   color: white;
   padding: 12px 24px;
   font-size: 16px;
@@ -52,15 +53,12 @@ const Button: FunctionComponent<ButtonProps> = ({
   const themeColor = theme === "light" ? "#333" : "#fff";
 
   return (
-    <>
-      <StyledLabel htmlFor="btn" style={{ color: themeColor }}>
-        {label}
-      </StyledLabel>
-      <br />
+    <div style={{ display: "grid", placeItems: "center" }}>
+      <StyledLabel style={{ color: themeColor }}>{label}</StyledLabel>
       <StyledButton id="btn" onClick={onClick}>
         {children}
       </StyledButton>
-    </>
+    </div>
   );
 };
 

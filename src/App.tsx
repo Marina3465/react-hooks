@@ -8,12 +8,12 @@ import {
   Location,
   Navigate,
   Context,
+  Callback,
+  Memo,
+  Reducer,
 } from "./components/Hooks";
 import { useTheme } from "./components/Hooks/Context/utils";
 import { useEffect } from "react";
-import Callback from "./components/Hooks/Callback";
-import Reducer from "./components/Hooks/Reducer";
-// import Memo from "./components/Hooks/Memo";
 
 function App() {
   const { theme } = useTheme();
@@ -42,7 +42,7 @@ function App() {
         <Route path="useNavigate" element={<Navigate />} />
         <Route path="useContext" element={<Context />} />
         <Route path="useCallback" element={<Callback />} />
-        {/* <Route path="useMemo" element={<Memo />} /> */}
+        <Route path="useMemo" element={<Memo />} />
         <Route path="useReducer" element={<Reducer />} />
       </Routes>
     </BrowserRouter>
